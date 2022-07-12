@@ -1,0 +1,10 @@
+#^hama/mEM<cat:p><case:o><parsarg:0><gen:m><num:p><per:u>/mEM<cat:p><case:o><parsarg:0><gen:f><num:p><per:u>$ ^puswaka/puswaka<cat:n><case:d><gen:f><num:s>/puswaka<cat:n><case:o><gen:f><num:s>$ ^paDawe/paDa<cat:v><gen:m><num:p><per:u><tam:wA>/paDa<cat:v><gen:m><num:p><per:m><tam:wA>/paDa<cat:v><gen:m><num:p><per:m_h><tam:wA>/paDa<cat:v><gen:m><num:p><per:a><tam:wA>$ ^hEM/hE<cat:v><gen:m><num:p><per:u><tam:hE>/hE<cat:v><gen:m><num:p><per:a><tam:hE>/hE<cat:v><gen:f><num:p><per:u><tam:hE>/hE<cat:v><gen:f><num:p><per:a><tam:hE>$.
+^speaker/*speaker$,^puswaka/puswaka<cat:n><case:d><gen:f><num:s>/puswaka<cat:n><case:o><gen:f><num:s>$_^1/*1$,^paDa/paDa<cat:v><gen:f><num:s><per:u><tam:0>/paDa<cat:v><gen:f><num:p><per:a><tam:0>/paDa<cat:v><gen:f><num:p><per:m_h><tam:0>/paDa<cat:v><gen:f><num:p><per:m><tam:0>/paDa<cat:v><gen:f><num:p><per:u><tam:0>/paDa<cat:v><gen:f><num:s><per:m_h0><tam:imper>/paDa<cat:v><gen:f><num:s><per:a><tam:0>/paDa<cat:v><gen:f><num:s><per:m_h><tam:0>/paDa<cat:v><gen:f><num:s><per:m><tam:0>/paDa<cat:v><gen:m><num:s><per:u><tam:0>/paDa<cat:v><gen:m><num:p><per:a><tam:0>/paDa<cat:v><gen:m><num:p><per:m_h><tam:0>/paDa<cat:v><gen:m><num:p><per:m><tam:0>/paDa<cat:v><gen:m><num:p><per:u><tam:0>/paDa<cat:v><gen:m><num:s><per:m_h0><tam:imper>/paDa<cat:v><gen:m><num:s><per:a><tam:0>/paDa<cat:v><gen:m><num:s><per:m_h><tam:0>/paDa<cat:v><gen:m><num:s><per:m><tam:0>$_^1/*1$-^wA/wA<cat:prsg>/wA<cat:adj><case:d><gen:m><num:s>/wA<cat:n><case:d><gen:m><num:s>$_^hE/hE<cat:v><gen:m><num:s><per:m><tam:hE>/hE<cat:v><gen:m><num:s><per:a><tam:hE>/hE<cat:v><gen:f><num:s><per:m><tam:hE>/hE<cat:v><gen:f><num:s><per:a><tam:hE>/ho<cat:v><gen:f><num:s><per:a><tam:hE>$_^1/*1$
+^1/*1$,^2/*2$,^3/*3$
+,,
+[- ^pl/*pl$ ^u/u<cat:n><case:d><gen:m><num:s>/u<cat:n><case:d><gen:m><num:p>/u<cat:n><case:o><gen:m><num:s>$],[- ^pl/*pl$ ^a/*a$],
+^3/*3$:^k1/*k1$,^3/*3$:^k2/*k2$,^0/0<cat:prsg>$:^main/*main$
+,,
+,^def/*def$,
+,,
+^affirmative/*affirmative$
