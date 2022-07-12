@@ -94,6 +94,8 @@ def analyze_data(results):
             analyse_data = f'^wu<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}><per:{gram_data[word][-2]}>$'
         elif root_words[word] == 'speaker':
             analyse_data = f'^mEM<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}>$'
+        elif root_words[word] == "koI" or "kuCa" or "kyA" or "kOna" or "kazhA" or "kaba" :
+            analyse_data = f'^{root_words[word].split("_")[0]}<cat:p><case:o><parsarg:0><gen:m><num:{num}><per:{gram_data[word][-2]}><tam:0>$'
         else:
             analyse_data = f'^{root_words[word].split("_")[0]}<cat:{gra}><case:{case}><gen:{gen}><num:{num}>$'
         input_data.append(analyse_data)
