@@ -2,6 +2,7 @@ import doctest
 import subprocess
 from wxconv import WXC
 import sys
+import re
 
 def read_file(path):
     """
@@ -22,6 +23,7 @@ def pre_process(data):
     case_info =  (new_data[-3]).split(",")
     semantic_info = new_data[2].split(",")
     respect_info = new_data[-1]
+    unchanged_word = "waWA,Ora,paranwu,kinwu,evaM,waWApi,Bale hI,wo,agara,magara,awaH,cUMki,cUzki,jisa waraha,jisa prakAra,lekina,waba,waBI,yA,varanA,anyaWA,wAki,baSarweM,jabaki,yaxi,varana,paraMwu,kiMwu,hAlAzki,hAlAMki,va".split(",")
     return root_words,gram_data,case_info,semantic_info,respect_info
 
 def analyze_data(results):
@@ -34,19 +36,22 @@ def analyze_data(results):
     seman_data = results[3]
     res_data = results[4].split(",")
     input_data = []
-    verb_data = root_words[-1].split("_")
+    verb_data = root_words[-1]
     verb_word = []
     rel_index_num = ''
     index_num = 0
     adj_words = ''
-    for word in verb_data:
-        if '0' in word:
-            if word.isalpha():
-                verb_word.append(word)
-        else:
-            if word.isalpha():
-                verb_word.append(word)
-    # print(verb_word)
+    if '0'  in verb_data:
+        verb_data = verb_data.split("_")
+        for char in verb_data:
+            if char.isalpha():
+                verb_word.append(char)
+    else:         
+        res1 = re.sub(r'[^a-zA-Z]', ' ', verb_data).split(" ")
+        for char in res1:
+            if len(char) >= 1:
+                verb_word.append(char)
+        verb_word = [verb_word[0]+verb_word[1]] +verb_word[2:]
     
     for word in range(len(root_words[:(len(gram_data) - 1)])):
         if  'm' in gram_data[word] or '-' in gram_data[word]:
@@ -87,15 +92,15 @@ def analyze_data(results):
             case ='o'
         
         if root_words[word] == 'addressee' and "respect" in res_data[0]:
-            analyse_data = f'^Apa<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}><per:{gram_data[word][-2]}>$'
+            analyse_data = f'^Apa<cat:p><case:o><parsarg:0><gen:m><num:{num}><per:{gram_data[word][-2]}>$'
         elif root_words[word] == 'addressee' and len(res_data[0]) == 0:
-            analyse_data = f'^wuma<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}><per:{gram_data[word][-2]}>$'
+            analyse_data = f'^wuma<cat:p><case:o><parsarg:0><gen:m><num:{num}><per:{gram_data[word][-2]}>$'
         elif root_words[word] == 'addressee' and "informal" in res_data[0]:
-            analyse_data = f'^wu<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}><per:{gram_data[word][-2]}>$'
+            analyse_data = f'^wU<cat:p><case:o><parsarg:0><gen:m><num:{num}><per:{gram_data[word][-2]}>$'
         elif root_words[word] == 'speaker':
             analyse_data = f'^mEM<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}>$'
-        elif root_words[word] == "koI" or "kuCa" or "kyA" or "kOna" or "kazhA" or "kaba" :
-            analyse_data = f'^{root_words[word].split("_")[0]}<cat:p><case:o><parsarg:0><gen:m><num:{num}><per:{gram_data[word][-2]}><tam:0>$'
+        # elif root_words[word] == "koI" or "kuCa" or "kyA" or "kOna" or "kazhA" or "kaba" :
+        #     analyse_data = f'^{root_words[word].split("_")[0]}<cat:p><case:o><parsarg:0><gen:{gen}><num:{num}><per:{gram_data[word][-2]}><tam:0>$'
         else:
             analyse_data = f'^{root_words[word].split("_")[0]}<cat:{gra}><case:{case}><gen:{gen}><num:{num}>$'
         input_data.append(analyse_data)
